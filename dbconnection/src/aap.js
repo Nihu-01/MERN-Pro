@@ -1,6 +1,14 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
-mongoose.connect("mongodb://localhost:27012/NeneDB",{
-    useNewUrlParser: true, useUnifiedTopology: true
-}).then(()=> console.log("connection successfull....."))
-.catch((error)=> console.log(error)); 
+main().catch(err => console.log(err));
+
+async function main() {
+    mongoose.connect("mongodb://localhost:27017/NeneDB", {
+        useCreateIndex: true,
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      });
+
+  // use `await mongoose.connect('mongodb://user:password@127.0.0.1:27017/test');` if your database has auth enabled
+}
+
